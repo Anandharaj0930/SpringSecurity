@@ -46,4 +46,9 @@ public class HomeController {
         String token = jwtUtil.generateToken(userDetails);
         return new JWTResponse(token);
     }
+
+    @GetMapping(path = "/bro")
+    public String getBroHome() {
+        return "Bro Home";
+    }
 }

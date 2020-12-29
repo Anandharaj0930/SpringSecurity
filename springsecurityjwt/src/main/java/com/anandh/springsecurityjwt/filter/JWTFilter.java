@@ -22,9 +22,9 @@ public class JWTFilter extends OncePerRequestFilter {
 
     @Autowired
     private JWTUtil jwtUtil;
+
     @Autowired
     CustomUserDetailService customUserDetailService;
-
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
@@ -32,9 +32,8 @@ public class JWTFilter extends OncePerRequestFilter {
         String token = null;
         String userName = null;
         UserDetails userDetails = null;
-
-        if (autherization != null && autherization.startsWith("Bearer")) {
-            token = autherization.substring(7);
+        if (autherization != null && autherization.startsWith("JWT")) {
+            token = autherization.substring(4);
             try {
                 userName = jwtUtil.getUsernameFromToken(token);
             } catch (IllegalArgumentException e) {
@@ -55,6 +54,5 @@ public class JWTFilter extends OncePerRequestFilter {
             }
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
-
     }
 }

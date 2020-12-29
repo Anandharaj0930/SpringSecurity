@@ -8,6 +8,8 @@
       <list>
         <option value="$PROJECT_DIR$/springsecurity/pom.xml" />
         <option value="$PROJECT_DIR$/springsecurityjwt/pom.xml" />
+        <option value="$PROJECT_DIR$/springsecuritydefault/pom.xml" />
+        <option value="$PROJECT_DIR$/springsecurityjpa/pom.xml" />
       </list>
     </option>
   </component>
